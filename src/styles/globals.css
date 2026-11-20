@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  /* Palette: neutral paper, ink, ultramarine, deep navy */
+  --background: #F6F6F4;
+  --surface: #ECEDEA;
+  --foreground: #15171C;
+  --muted: #8A8E97;
+  --muted-strong: #555A64;
+  --accent: #3D4FF2;
+  --accent-hover: #2C3CD4;
+  --accent-on-dark: #9AA5FF;
+  --border: #D9DAD6;
+  --dark: #161B2C;
+  --dark-elevated: #0E1220;
+  --dark-surface: #222842;
+  --dark-border: #2A3147;
+  --dark-muted: #A3A9B8;
+  --dark-text: #F2F3F5;
+
+  --font-sans: 'Archivo', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --text-hero: clamp(2.4rem, 4.6vw, 4.4rem);
+  --text-section: clamp(1.9rem, 3.2vw, 2.9rem);
+  --text-project: clamp(1.6rem, 2.6vw, 2.35rem);
+  --text-lead: clamp(1.0625rem, 1.3vw, 1.225rem);
+}
+
+/* Smaller hero type on narrow phones */
+@media (max-width: 480px) {
+  :root {
+    --text-hero: clamp(2rem, 9.2vw, 2.6rem);
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--background);
+    color: var(--foreground);
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+    overflow-x: clip;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: clip;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+.type-hero {
+  font-size: var(--text-hero);
+  font-weight: 700;
+  font-stretch: 112%;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+.type-section {
+  font-size: var(--text-section);
+  font-weight: 650;
+  font-stretch: 108%;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.type-project {
+  font-size: var(--text-project);
+  font-weight: 650;
+  font-stretch: 106%;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.type-lead {
+  font-size: var(--text-lead);
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
